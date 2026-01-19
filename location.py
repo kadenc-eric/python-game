@@ -1,3 +1,6 @@
+from curses import COLOR_BLACK
+
+
 class Enemy:
     """Enemy class for combat encounters"""
     def __init__(self, name, health, attack):
@@ -48,14 +51,14 @@ class Mosty_Mire(Location):
     """Swamp location - murky, dangerous waters"""
     def __init__(self):
         super().__init__(
-            name="Swamp",
+            name="Mosty Mire",
             description="A murky, fog-covered swamp with dark waters. Strange creatures lurk beneath the surface."
         )
         self.hazard = "quicksand"  # Special hazard
         self.visibility = "low"
         # Add coba enemy for later in the game
-        coba = Enemy("coba", health=150, attack=25)
-        self.enemies.append(coba)
+        loki = Enemy("loki", health=150, attack=50)
+        self.enemies.append(loki)
         
     def get_description(self):
         return f"{self.description} The air is thick with fog, making it hard to see."
@@ -65,13 +68,13 @@ class Pleasnat_Park(Location):
     """Forest location - dense woodland"""
     def __init__(self):
         super().__init__(
-            name="Forest",
+            name="Pleasant Park",
             description="A dense, ancient forest with tall trees and winding paths. Birds chirp overhead."
         )
         self.tree_cover = "dense"
         self.visibility = "medium"
 
-        peely = Enemy("coba", health=150, attack=25)
+        peely = Enemy("peely", health=150, attack=50)
         self.enemies.append(peely)
         
     def get_description(self):
@@ -82,7 +85,7 @@ class Tilted_Towers(Location):
     """City location - bustling urban area"""
     def __init__(self):
         super().__init__(
-            name="City",
+            name="Tilted Towers",
             description="A bustling city with stone buildings, busy markets, and friendly townspeople."
         )
         self.has_shops = True
@@ -90,8 +93,8 @@ class Tilted_Towers(Location):
         self.population = "high"
         self.visibility = "high"
 
-        loki = Enemy("coba", health=150, attack=25)
-        self.enemies.append(loki)
+        Coba = Enemy("coba", health=150, attack=50)
+        self.enemies.append(Coba)
         
     def get_description(self):
         return f"{self.description} You can hear merchants calling out their wares."
@@ -101,14 +104,14 @@ class Salty_Springs(Location):
     """Desert location - hot, arid wasteland"""
     def __init__(self):
         super().__init__(
-            name="Desert",
+            name="Salty Springs",
             description="A vast, scorching desert with endless sand dunes. The sun beats down mercilessly."
         )
         self.hazard = "sandstorm"
         self.water_sources = False
         self.visibility = "high" 
         
-        mitus = Enemy("coba", health=150, attack=25)
+        mitus = Enemy("mitus", health=150, attack=50)
         self.enemies.append(mitus) # Clear skies but harsh conditions
         
     def get_description(self):
@@ -119,7 +122,7 @@ class Greasy_Grove(Location):
     """Village location - small, peaceful settlement"""
     def __init__(self):
         super().__init__(
-            name="Village",
+            name="Greasy Grove",
             description="A small, peaceful village with friendly villagers, a tavern, and basic shops."
         )
         self.has_tavern = True
@@ -127,7 +130,7 @@ class Greasy_Grove(Location):
         self.population = "medium"
         self.visibility = "high"
         
-        Omega = Enemy("coba", health=150, attack=25)
+        Omega = Enemy("omega", health=150, attack=50)
         self.enemies.append(Omega)
 
 
